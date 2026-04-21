@@ -1,0 +1,7 @@
+/target
+/result
+/result-*
+Cargo.lock
+.direnv
+.envrc.local
+.DS_Store

@@ -1,0 +1,51 @@
+[package]
+name = "floresta"
+description = "brasa's userspace init + convergence orchestrator (PID 1)"
+version = "0.0.1"
+edition = "2024"
+rust-version = "1.89.0"
+license = "MIT"
+homepage = "https://github.com/pleme-io/floresta"
+repository = "https://github.com/pleme-io/floresta"
+authors = ["pleme-io"]
+publish = false
+
+[lib]
+name = "floresta"
+path = "src/lib.rs"
+
+# Phase 1: add a [[bin]] target with a #![no_main] entry linked against folha::rt.
+# Phase 0 is lib-only.
+
+[features]
+default = []
+testing = ["std", "dep:proptest"]
+std = []
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+module_name_repetitions = "allow"
+
+[dependencies]
+casca   = { git = "https://github.com/pleme-io/brasa" }
+seiva   = { git = "https://github.com/pleme-io/brasa" }
+raiz    = { git = "https://github.com/pleme-io/brasa" }
+folha   = { git = "https://github.com/pleme-io/brasa", features = ["rt"] }
+raizame = { git = "https://github.com/pleme-io/brasa" }
+
+heapless = { version = "0.8", default-features = false }
+log      = { version = "0.4", default-features = false }
+
+proptest = { version = "1", optional = true }
+
+[profile.release]
+codegen-units = 1
+lto           = true
+opt-level     = "z"
+strip         = true
+panic         = "abort"
+
+[profile.dev]
+panic = "abort"
