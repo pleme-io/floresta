@@ -1,5 +1,8 @@
 # floresta — operator instructions
 
+> **★★★ CSE / Knowable Construction.** This repo operates under **Constructive Substrate Engineering** — canonical specification at [`pleme-io/theory/CONSTRUCTIVE-SUBSTRATE-ENGINEERING.md`](https://github.com/pleme-io/theory/blob/main/CONSTRUCTIVE-SUBSTRATE-ENGINEERING.md). The Compounding Directive (operational rules: solve once, load-bearing fixes only, idiom-first, models stay current, direction beats velocity) is in the org-level pleme-io/CLAUDE.md ★★★ section. Read both before non-trivial changes.
+
+
 brasa's userspace init + convergence orchestrator. PID 1 on every brasa system.
 
 Start with [docs/init-design.md](./docs/init-design.md). The design reference is [brasa ADR-0004](https://github.com/pleme-io/brasa/blob/main/docs/adrs/0004-tatara-lisp-authoring.md).
